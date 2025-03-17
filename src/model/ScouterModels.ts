@@ -17,3 +17,23 @@ export interface ListItemProps{
     link?: string;
     icon?: string;
 }
+
+export interface CourtProps {
+  id: string;
+  name: string;
+  location: string;
+}
+
+export type CreateGameProps = {
+  name: string;
+  selectedCourt: CourtProps;
+  gameType: string;
+  selectedDate: any;
+  selectedTime: any;
+};
+
+export interface BaseGameProps {
+  id: number;
+  gameProps: CreateGameProps;
+  createdBy: string;
+}

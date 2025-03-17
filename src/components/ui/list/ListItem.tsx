@@ -3,15 +3,17 @@ import { ListItemProps } from "../../../model/ScouterModels";
 
 type ItemProps = {
   item: ListItemProps;
+  onSelect: () => void;
 };
 
-const ListItem = ({ item }: ItemProps) => {
+const ListItem = ({ item, onSelect }: ItemProps) => {
   const navigate = useNavigate();
 
   const handleListLinkClick = (item: ListItemProps) => {
     if (item.title === "Logout") {
       sessionStorage.clear();
     }
+    onSelect();
     if (item.link) {
       navigate(item.link);
     }

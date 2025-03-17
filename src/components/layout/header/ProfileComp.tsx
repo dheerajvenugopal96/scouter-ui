@@ -25,6 +25,11 @@ const items: ListItemProps[] = [
 const ProfileComp = () => {
   const { username } = useAppSelector((state) => state.auth);
   const [showProfileSidebar, setShowProfileSidebar] = useState(false);
+
+  const handleOnSelectListItem = () => {
+    setShowProfileSidebar(false);
+  };
+
   const ProfileSidebar = (
     <Sidebar
       position="right"
@@ -39,7 +44,13 @@ const ProfileComp = () => {
           <span>{username}</span>
         </div>
         <div className="mt-4">
-          {items.map(item => <ListItem key={item.id} item={item}/>) }
+          {items.map((item) => (
+            <ListItem
+              key={item.id}
+              item={item}
+              onSelect={handleOnSelectListItem}
+            />
+          ))}
         </div>
       </div>
     </Sidebar>
